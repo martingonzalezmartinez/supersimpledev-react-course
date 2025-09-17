@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import { CartItemDetails } from './CartItemDetails';
 import { DeliveryOptions } from './DeliveryOptions';
 
-export function OrderSummary({ cart, deliveryOptions }) {
+export function OrderSummary({ cart, deliveryOptions, loadCart }) {
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 && cart.map((cartItem) => {
@@ -21,7 +21,7 @@ export function OrderSummary({ cart, deliveryOptions }) {
               <img className="product-image"
                 src={cartItem.product.image} />
               <CartItemDetails cartItem={cartItem} />
-              <DeliveryOptions deliveryOptions={deliveryOptions} cartItem={cartItem} />
+              <DeliveryOptions deliveryOptions={deliveryOptions} cartItem={cartItem} loadCart={loadCart} />
             </div>
           </div>
         );
